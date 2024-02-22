@@ -1,7 +1,7 @@
 import Reaction from "./Reaction.js";
 import Comments from "./Comments.js";
 
-const Body = ({ title, views, createdAt, upvotes, downvotes, ...video }) => {
+const Body = ({ title, views, createdAt, upvotes, downvotes, comments }) => {
   return (
     <div>
       <h1>{title}</h1>
@@ -9,7 +9,7 @@ const Body = ({ title, views, createdAt, upvotes, downvotes, ...video }) => {
         {views} Views | Updated {createdAt}
       </span>
       <Reaction upvotes={upvotes} downvotes={downvotes} />
-      <Comments {...video} />
+      <Comments comments={comments} />
     </div>
   );
 };

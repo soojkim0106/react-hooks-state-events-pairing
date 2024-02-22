@@ -4,19 +4,24 @@ const Reaction = ({ upvotes, downvotes }) => {
   const [upvoteCount, setUpvoteCount] = useState(upvotes);
   const [downvoteCount, setDownvoteCount] = useState(downvotes);
 
-  const onClickUpvote = () => {
-    setUpvoteCount((current) => current + 1);
-  };
+  //   const handleClick = (e) => {
+  //     if (e.target.name === "upvote") {
+  //       return setUpvoteCount((current) => current + 1);
+  //     } else {
+  //       return setDownvoteCount((current) => current + 1);
+  //     }
+  //   };
 
-  const onClickDownvote = () => {
-    setDownvoteCount((current) => current + 1);
-  };
+  const handleClick = (e) =>
+    e.target.name === "upvote"
+      ? setUpvoteCount((current) => current + 1)
+      : setDownvoteCount((current) => current + 1);
 
   return (
-    <div>
+    <div className="reactions-btn" onClick={handleClick}>
       <br></br>
-      <button onClick={onClickUpvote}>{upvoteCount} 👍</button>
-      <button onClick={onClickDownvote}>{downvoteCount} 👎</button>
+      <button name="upvote">{upvoteCount} 👍</button>
+      <button name="downvote">{downvoteCount} 👎</button>
     </div>
   );
 };
